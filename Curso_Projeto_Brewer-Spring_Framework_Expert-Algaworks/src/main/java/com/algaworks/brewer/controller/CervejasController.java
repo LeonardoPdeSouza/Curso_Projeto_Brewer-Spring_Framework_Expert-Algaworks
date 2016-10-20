@@ -30,9 +30,5 @@ public class CervejasController {
 		System.out.println("Descricao: " + cerveja.getDescricao());
 		return "redirect:/cervejas/novo"; // Redirect força o navegador a fazer uma nova requisição e começar tudo de novo
 	}
-
-	@RequestMapping("/cervejas/cadastro")
-	public String cadastro() {
-		return "cerveja/cadastro-produto";
-	}
+	
 }
