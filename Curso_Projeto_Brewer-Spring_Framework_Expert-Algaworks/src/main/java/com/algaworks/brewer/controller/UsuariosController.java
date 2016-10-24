@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.algaworks.brewer.model.Usuario;
 
 @Controller
-public class UsuarioController {
+public class UsuariosController {
 	
 	@RequestMapping("/usuarios/novo")
 	public String novo(Usuario usuario) {
