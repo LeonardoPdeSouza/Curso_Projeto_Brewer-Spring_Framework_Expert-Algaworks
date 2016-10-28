@@ -16,13 +16,9 @@ import com.algaworks.brewer.repository.Cervejas;
 @Controller
 public class CervejasController {
 	
-	@Autowired
-	private Cervejas cervejas;
-	
 	@RequestMapping("/cervejas/novo")
 	public String novo(Cerveja cerveja) {
 		
-		cervejas.findAll();
 		return "cerveja/CadastroCerveja"; // Forward encaminha direto e já retorna (Padrão)
 	}
 	
