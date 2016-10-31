@@ -21,7 +21,7 @@ import com.algaworks.brewer.validation.SKU;
 @Entity
 @Table(name = "cerveja")
 public class Cerveja {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
@@ -29,40 +29,32 @@ public class Cerveja {
 	@SKU
 	@NotBlank(message = "SKU é obrigatório")
 	private String sku;
-	
+
 	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
-	
+
 	@Size(min = 1, max = 50, message = "O tamanho da descrição deve estar entre 1 e 50")
 	private String descricao;
-	
+
 	private BigDecimal valor;
-	
+
 	@Column(name = "teor_alcoolico")
 	private BigDecimal teorAlcoolico;
-	
+
 	private BigDecimal comissao;
-	
+
 	@Column(name = "quantidade_estoque")
 	private Integer quantidadeEstoque;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Origem origem;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Sabor sabor;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "codigo_estilo")
 	private Estilo estilo;
-
-	public Long getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
 
 	public String getSku() {
 		return sku;
@@ -86,6 +78,14 @@ public class Cerveja {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 	public BigDecimal getValor() {
@@ -168,7 +168,5 @@ public class Cerveja {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }
