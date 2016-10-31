@@ -15,12 +15,16 @@ import com.algaworks.brewer.model.Cerveja;
 import com.algaworks.brewer.model.Origem;
 import com.algaworks.brewer.model.Sabor;
 import com.algaworks.brewer.repository.Estilos;
+import com.algaworks.brewer.service.CadastroCervejaService;
 
 @Controller
 public class CervejasController {
 	
 	@Autowired
 	private Estilos estilos;
+	
+	@Autowired
+	private CadastroCervejaService cadastroCervejaService;
 	
 	@RequestMapping("/cervejas/novo")
 	public ModelAndView novo(Cerveja cerveja) {
@@ -37,12 +41,20 @@ public class CervejasController {
 		if(result.hasErrors()){ // verifica erro
 			return novo(cerveja);
 		}
+		cadastroCervejaService.salvar(cerveja);
 		attributes.addFlashAttribute("mensagem", "Cerveja salva com sucesso!");
+		
+		/*     
 		System.out.println("SKU: " + cerveja.getSku());
 		System.out.println("Nome: " + cerveja.getNome());
 		System.out.println("Descricao: " + cerveja.getDescricao());
 		System.out.println("Sabor: " + cerveja.getSabor());
 		System.out.println("Origem: " + cerveja.getOrigem());
+		
+		if(cerveja.getEstilo() != null)	{
+			System.out.println("Estilo: " + cerveja.getEstilo().getCodigo());
+		}
+		*/
 		return new ModelAndView("redirect:/cervejas/novo"); // Redirect força o navegador a fazer uma nova requisição e começar tudo de novo
 	}
 	
