@@ -41,6 +41,8 @@ public class CervejasController {
 		System.out.println("SKU: " + cerveja.getSku());
 		System.out.println("Nome: " + cerveja.getNome());
 		System.out.println("Descricao: " + cerveja.getDescricao());
+		System.out.println("Sabor: " + cerveja.getSabor());
+		System.out.println("Origem: " + cerveja.getOrigem());
 		return new ModelAndView("redirect:/cervejas/novo"); // Redirect força o navegador a fazer uma nova requisição e começar tudo de novo
 	}
 	
