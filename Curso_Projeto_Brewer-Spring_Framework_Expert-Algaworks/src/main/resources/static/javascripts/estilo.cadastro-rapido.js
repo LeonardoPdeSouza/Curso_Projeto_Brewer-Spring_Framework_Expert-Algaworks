@@ -17,7 +17,6 @@ $(function() {
 	}
 	
 	function onModalClose() {
-		alert("olá");
 		inputNomeEstilo.val('');
 		containerMensagemErro.addClass('hidden');
 		form.find('.form-group').removeClass('has-error');
